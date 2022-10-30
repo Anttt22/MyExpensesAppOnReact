@@ -5,7 +5,7 @@ import './NewExpense.css'
 const NewExpence = (props) => {
 
     const saveExpence = (dataToSave) => {
-        debugger
+        //debugger
         var data = {
             ...dataToSave,
            

@@ -6,23 +6,32 @@ import ExpensesFilter from "./ExpensesFilter"
 
 
 let Expenses = (props) => {
-  debugger
- 
-  const[enteredYear, setEnteredYear]=useState("2011")
+  //debugger
 
-  const onFlterChangeHandler=(selectedYear)=>{
+  const [enteredYear, setEnteredYear] = useState("2011")
+
+  const onFlterChangeHandler = (selectedYear) => {
     setEnteredYear(selectedYear)
   }
 
-  var expenseItemsArr=props.expenses.map(elem=><ExpenseItem title={elem.title} amount={elem.amount} date={elem.date}/>)
-  //console.log(expenseItemsArr)
-  debugger
+  var filteredExpensesArr = props.expenses.filter(elem => {
+     return elem.date.getFullYear().toString() === enteredYear }
+  )
+  console.log(filteredExpensesArr)
+
+  //debugger
+
   return (
-    
+
     <div className="expenses">
-      <ExpensesFilter selected={enteredYear} onFilterChange={onFlterChangeHandler}/>
-      
-      {expenseItemsArr}
+      <ExpensesFilter selected={enteredYear} onFilterChange={onFlterChangeHandler} />
+
+      {filteredExpensesArr.map(elem =>
+        <ExpenseItem
+          key={elem.id}
+          title={elem.title}
+          amount={elem.amount}
+          date={elem.date} />)}
 
     </div>
   );

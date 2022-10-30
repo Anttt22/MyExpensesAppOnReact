@@ -36,7 +36,7 @@ const DummyExpenses =
 
 
 let App = () => {
-debugger
+//debugger
   const[expenses, SetExpenses]=useState(DummyExpenses)
 
  
@@ -47,7 +47,6 @@ debugger
    
     console.log("in App.js")
     console.log(expense)
-
 
     console.log("expenses")
     console.log(expenses)
@@ -67,4 +66,4 @@ debugger
 export default App
 
 
-//40
+//66
