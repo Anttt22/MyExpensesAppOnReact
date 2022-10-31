@@ -1,8 +1,9 @@
 import { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
+
 import './Expenses.css';
 import ExpensesFilter from "./ExpensesFilter"
 import ExpensesList from "./ExpensesList"
+import ExpensesChart from "./ExpensesChart"
 
 
 
@@ -21,24 +22,13 @@ let Expenses = (props) => {
   )
   console.log(filteredExpensesArr)
 
-  // let expensesContent=<p>no Expenses found</p>
-  
-  // if(filteredExpensesArr.length>0){
-  //   expensesContent=filteredExpensesArr.map((elem) => (
-  //     <ExpenseItem
-  //       key={elem.id}
-  //       title={elem.title}
-  //       amount={elem.amount}
-  //       date={elem.date}
-  //     />
-  //   ))
-  // }
-  //debugger
+
 
   return (
 
     <div className="expenses">
       <ExpensesFilter selected={enteredYear} onFilterChange={onFlterChangeHandler} />
+      <ExpensesChart expenses={filteredExpensesArr} />
       <ExpensesList item={filteredExpensesArr}/>
 
     </div>
